@@ -1,0 +1,38 @@
+name: Deploy to QuantCDN
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy to QuantCDN
+        uses: quantcdn/deploy-action@v2
+        with:
+          customer: ${{ secrets.QUANT_CUSTOMER }}
+          project: ${{ secrets.QUANT_PROJECT }}
+          token: ${{ secrets.QUANT_TOKEN }}
+          dir: build

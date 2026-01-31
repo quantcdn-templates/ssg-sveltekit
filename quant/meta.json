@@ -1,0 +1,8 @@
+{
+  "title": "SvelteKit",
+  "description": "SvelteKit static site template for QuantCDN",
+  "template_type": "ssg",
+  "requires_db": false,
+  "categories": ["static", "sveltekit", "svelte"],
+  "output_directory": "build"
+}
