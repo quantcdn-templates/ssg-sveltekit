@@ -1,4 +1,5 @@
 {
+  "url": "/deploy/static/ssg-sveltekit",
   "title": "SvelteKit",
   "description": "SvelteKit static site template for QuantCDN",
   "template_type": "ssg",
