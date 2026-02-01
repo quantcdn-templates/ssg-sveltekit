@@ -30,7 +30,7 @@ jobs:
         run: npm run build
 
       - name: Deploy to QuantCDN
-        uses: quantcdn/deploy-action@v2
+        uses: quantcdn/deploy-action@v6
         with:
           customer: ${{ secrets.QUANT_CUSTOMER }}
           project: ${{ secrets.QUANT_PROJECT }}
